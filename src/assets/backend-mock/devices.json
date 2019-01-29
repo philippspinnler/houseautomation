@@ -3,7 +3,7 @@
     {
       "id": 1,
       "type": "lightbulb",
-      "name": "Living room ceiling",
+      "name": "Living room ceiling 1",
       "parameters": {
         "on": true,
         "color": "white",
@@ -13,7 +13,7 @@
     {
       "id": 2,
       "type": "lightbulb",
-      "name": "Living room ceiling",
+      "name": "Living room ceiling 2",
       "parameters": {
         "on": true,
         "color": "white",
@@ -23,7 +23,7 @@
     {
       "id": 3,
       "type": "lightbulb",
-      "name": "Living room ceiling",
+      "name": "Living room ceiling 3",
       "parameters": {
         "on": true,
         "color": "white",

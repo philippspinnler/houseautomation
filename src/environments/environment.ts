@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+    production: false,
+    apiEndpoints: {
+        devices: '/assets/backend-mock/devices.json',
+        groups: '/assets/backend-mock/groups.json'
+    }
 };
 
 /*
