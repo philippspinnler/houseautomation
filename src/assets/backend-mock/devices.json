@@ -1,0 +1,53 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "type": "lightbulb",
+      "name": "Living room ceiling",
+      "parameters": {
+        "on": true,
+        "color": "white",
+        "intensity": 100
+      }
+    },
+    {
+      "id": 2,
+      "type": "lightbulb",
+      "name": "Living room ceiling",
+      "parameters": {
+        "on": true,
+        "color": "white",
+        "intensity": 100
+      }
+    },
+    {
+      "id": 3,
+      "type": "lightbulb",
+      "name": "Living room ceiling",
+      "parameters": {
+        "on": true,
+        "color": "white",
+        "intensity": 100
+      }
+    },
+    {
+      "id": 4,
+      "type": "lightbulb",
+      "name": "Living room couch table",
+      "parameters": {
+        "on": true,
+        "color": "white",
+        "intensity": 100
+      }
+    },
+    {
+      "id": 5,
+      "type": "thermostat",
+      "name": "Living room temperature",
+      "parameters": {
+        "on": true,
+        "temperature": 21
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "living ceiling",
+      "devices": [
+        1,
+        2,
+        3
+      ]
+    }
+  ]
+}
