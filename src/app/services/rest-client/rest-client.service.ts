@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {environment} from '../../../environments/environment';
 import {Device} from 'src/app/models/Device';
 import {Group} from '../../models/Group';
+import {environment} from '../../../environments/environment';
 
 interface ApiResponse {
     items: any[];

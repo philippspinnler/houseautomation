@@ -9,19 +9,8 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let device of devices">
-        <div>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>{{ device.name }}</ion-card-title>
-            </ion-card-header>
-
-            <ion-card-content>
-              Keep close to Nature's heart... and break clear away, once in awhile,
-              and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            </ion-card-content>
-          </ion-card>
-        </div>
+      <ion-col *ngFor="let device of devices" [ngSwitch]="device.type">
+        <device-lightbulb *ngSwitchCase="'lightbulb'" [lightbulb]="device"></device-lightbulb>
       </ion-col>
     </ion-row>
   </ion-grid>
