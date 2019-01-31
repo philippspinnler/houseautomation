@@ -8,7 +8,8 @@
         "on": true,
         "color": "white",
         "intensity": 100
-      }
+      },
+      "roomId": 1
     },
     {
       "id": 2,
@@ -18,17 +19,8 @@
         "on": true,
         "color": "white",
         "intensity": 100
-      }
-    },
-    {
-      "id": 3,
-      "type": "lightbulb",
-      "name": "Living room ceiling 3",
-      "parameters": {
-        "on": true,
-        "color": "white",
-        "intensity": 100
-      }
+      },
+      "roomId": 1
     },
     {
       "id": 4,
@@ -38,7 +30,8 @@
         "on": true,
         "color": "white",
         "intensity": 100
-      }
+      },
+      "roomId": 1
     },
     {
       "id": 5,
@@ -47,7 +40,27 @@
       "parameters": {
         "on": true,
         "temperature": 21
-      }
+      },
+      "roomId": 1
+    },
+    {
+      "id": 6,
+      "type": "thermometer",
+      "name": "Living room temperature",
+      "parameters": {
+        "temperature": 21
+      },
+      "roomId": 1
+    },
+    {
+      "id": 6,
+      "type": "speaker",
+      "name": "TV sound bar",
+      "parameters": {
+        "on": false,
+        "volume": 5
+      },
+      "roomId": 1
     }
   ]
 }

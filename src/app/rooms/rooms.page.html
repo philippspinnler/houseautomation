@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Groups
+      Rooms
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,18 +9,12 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let group of groups">
+      <ion-col *ngFor="let room of rooms" [size]="4">
         <div>
           <ion-card>
             <ion-card-header>
-              <ion-card-title>{{ group.name }}</ion-card-title>
+              <ion-card-title>{{ room.name }}</ion-card-title>
             </ion-card-header>
-
-            <ion-card-content>
-              <ul>
-                <li *ngFor="let device of group.devices">{{ device.name }}</li>
-              </ul>
-            </ion-card-content>
           </ion-card>
         </div>
       </ion-col>

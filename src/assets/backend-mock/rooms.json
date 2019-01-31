@@ -2,13 +2,7 @@
   "items": [
     {
       "id": 1,
-      "name": "living room",
-      "devices": [
-        4
-      ],
-      "groups": [
-        1
-      ]
+      "name": "living room"
     },
     {
       "id": 2,

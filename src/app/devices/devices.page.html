@@ -9,8 +9,19 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let device of devices" [ngSwitch]="device.type">
+      <ion-col *ngFor="let device of devices" [ngSwitch]="device.type" [sizeSm]="6" [sizeXs]="12" [sizeMd]="4">
         <device-lightbulb *ngSwitchCase="'lightbulb'" [lightbulb]="device"></device-lightbulb>
+        <device-thermometer *ngSwitchCase="'thermometer'" [thermometer]="device"></device-thermometer>
+        <device-thermostat *ngSwitchCase="'thermostat'" (temperatureChange)="handleTemperatureChange($event)" [thermostat]="device"></device-thermostat>
+        <ion-card *ngSwitchDefault>
+          <ion-card-header>
+            <ion-card-subtitle>{{ device.type }}</ion-card-subtitle>
+            <ion-card-title>{{ device.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            Device not yet supported
+          </ion-card-content>
+        </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>

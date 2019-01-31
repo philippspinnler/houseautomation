@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Device} from 'src/app/models/Device';
-import {Group} from '../../models/Group';
+import {Room} from '../../models/Room';
 import {environment} from '../../../environments/environment';
 
 interface ApiResponse {
@@ -12,16 +12,24 @@ interface ApiResponse {
     providedIn: 'root'
 })
 export class RestClientService {
+    // Variables used to save states at runtime
+    devices: Device[];
+    rooms: Room[];
 
     constructor(private http: HttpClient) {
     }
 
     async getDevices() {
+        if (this.devices) {
+            return this.devices;
+        }
         const devices: Device[] = [];
         const response: ApiResponse = <ApiResponse>await this.http.get(environment.apiEndpoints.devices).toPromise();
         for (const device of response.items) {
-            devices.push(new Device(device));
+            const room = await this.getRoom(device.roomId);
+            devices.push(new Device({...device, room}));
         }
+        this.devices = devices;
         return devices;
     }
 
@@ -30,17 +38,31 @@ export class RestClientService {
         return devices.find(d => d.id === id);
     }
 
-    async getGroups() {
-        const groups: Group[] = [];
-        const response: ApiResponse = <ApiResponse>await this.http.get(environment.apiEndpoints.groups).toPromise();
-        for (const group of response.items) {
-            const devices: Device[] = [];
-            for (const deviceId of group.devices) {
-                const device: Device = await this.getDevice(deviceId);
-                devices.push(device);
-            }
-            groups.push(new Group({...group, devices}));
+    async getRooms() {
+        if (this.rooms) {
+            return this.rooms;
         }
-        return groups;
+        const rooms: Room[] = [];
+        const response: ApiResponse = <ApiResponse>await this.http.get(environment.apiEndpoints.rooms).toPromise();
+        for (const room of response.items) {
+            rooms.push(new Room(room));
+        }
+        this.rooms = rooms;
+        return rooms;
+    }
+
+    async getRoom(id: number) {
+        const rooms: Room[] = await this.getRooms();
+        return rooms.find(d => d.id === id);
+    }
+
+    async saveDevice(device: Device) {
+        this.devices = this.devices.map((obj) => {
+            if (obj.id === device.id) {
+                return device;
+            }
+            return obj;
+        });
+        return device;
     }
 }

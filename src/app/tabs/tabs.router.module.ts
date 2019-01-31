@@ -17,11 +17,11 @@ const routes: Routes = [
         ]
       },
         {
-        path: 'groups',
+        path: 'rooms',
         children: [
           {
             path: '',
-            loadChildren: '../groups/groups.module#GroupsPageModule'
+            loadChildren: '../rooms/rooms.module#RoomsPageModule'
           }
         ]
       },

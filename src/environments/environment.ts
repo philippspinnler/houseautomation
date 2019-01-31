@@ -6,7 +6,7 @@ export const environment = {
     production: false,
     apiEndpoints: {
         devices: '/assets/backend-mock/devices.json',
-        groups: '/assets/backend-mock/groups.json'
+        rooms: '/assets/backend-mock/rooms.json'
     }
 };
 

@@ -1,4 +1,5 @@
 export enum DeviceTypes {
-    'lighbulb',
-    'thermostat'
+    LightBulb = 'lightbulb',
+    Thermostat = 'thermostat',
+    Thermometer = 'thermometer'
 }
