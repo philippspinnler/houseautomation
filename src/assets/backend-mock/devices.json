@@ -16,7 +16,7 @@
       "type": "lightbulb",
       "name": "Living Room Ceiling 2",
       "parameters": {
-        "on": true,
+        "on": false,
         "color": "white",
         "intensity": 100
       },

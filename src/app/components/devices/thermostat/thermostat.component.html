@@ -3,11 +3,14 @@
     <ion-card-subtitle>{{ thermostat.type }}</ion-card-subtitle>
     <ion-card-title>{{ thermostat.name }}</ion-card-title>
   </ion-card-header>
+  <ion-card-content>
+    <ion-label float-end="">{{ thermostat.parameters.temperature }} °C</ion-label>
+  </ion-card-content>
   <ion-list>
     <ion-item>
       <ion-range [debounce]="500" [(ngModel)]="temperature" (ionChange)="changeTemperature()" [disabled]="!thermostat.parameters.on" min="18" max="30" step="0.5">
-        <ion-icon size="small" slot="start" name="sunny"></ion-icon>
-        <ion-icon slot="end" name="sunny"></ion-icon>
+        <ion-label slot="start">18°</ion-label>
+        <ion-label slot="end">30°</ion-label>
       </ion-range>
     </ion-item>
   </ion-list>
