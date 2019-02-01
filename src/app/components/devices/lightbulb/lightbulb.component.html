@@ -1,11 +1,11 @@
-<ion-card [ngClass]="{'on':lightbulb.parameters.on}">
+<ion-card [ngClass]="{'on':lightBulb.parameters.on}">
     <ion-card-header (click)="toggleLightBulb()">
-        <ion-card-subtitle>{{ lightbulb.type }}</ion-card-subtitle>
-        <ion-card-title>{{ lightbulb.name }}</ion-card-title>
+        <ion-card-subtitle>{{ lightBulb.type }}</ion-card-subtitle>
+        <ion-card-title>{{ lightBulb.name }}</ion-card-title>
     </ion-card-header>
     <ion-list>
         <ion-item>
-            <ion-range [disabled]="!lightbulb.parameters.on" min="0" max="100" step="5" [value]="lightbulb.parameters.intensity">
+            <ion-range [disabled]="!lightBulb.parameters.on" min="0" max="100" step="5" [value]="lightBulb.parameters.intensity">
                 <ion-icon size="small" slot="start" name="sunny"></ion-icon>
                 <ion-icon slot="end" name="sunny"></ion-icon>
             </ion-range>

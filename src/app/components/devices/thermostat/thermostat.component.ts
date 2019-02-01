@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Device} from '../../../models/Device';
 import {RestClientService} from '../../../services/rest-client/rest-client.service';
 import {TemparatureChange} from './TemparatureChange';
+import {Thermostat} from '../../../models/devices/Thermostat';
 
 @Component({
     selector: 'device-thermostat',
@@ -12,7 +12,7 @@ export class ThermostatComponent implements OnInit {
 
     temperature: number;
 
-    @Input() thermostat: Device;
+    @Input() thermostat: Thermostat;
     @Output() temperatureChange = new EventEmitter();
 
     constructor(private restClient: RestClientService) {

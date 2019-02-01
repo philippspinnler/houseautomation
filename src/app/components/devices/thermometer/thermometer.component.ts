@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Device} from '../../../models/Device';
+import {Thermometer} from '../../../models/devices/Thermometer';
 
 @Component({
     selector: 'device-thermometer',
@@ -8,7 +8,7 @@ import {Device} from '../../../models/Device';
 })
 export class ThermometerComponent implements OnInit {
 
-    @Input() thermometer: Device;
+    @Input() thermometer: Thermometer;
 
     constructor() {
     }

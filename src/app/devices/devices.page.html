@@ -15,7 +15,7 @@
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let device of devices" [ngSwitch]="device.type" [sizeSm]="6" [sizeXs]="12" [sizeMd]="4">
-        <device-lightbulb *ngSwitchCase="'lightbulb'" [lightbulb]="device"></device-lightbulb>
+        <device-lightbulb *ngSwitchCase="'lightbulb'" [lightBulb]="device"></device-lightbulb>
         <device-thermometer *ngSwitchCase="'thermometer'" [thermometer]="device"></device-thermometer>
         <device-thermostat *ngSwitchCase="'thermostat'" (temperatureChange)="handleTemperatureChange($event)" [thermostat]="device"></device-thermostat>
         <ion-card *ngSwitchDefault>

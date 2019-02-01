@@ -1,8 +1,14 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Device} from 'src/app/models/Device';
 import {Room} from '../../models/Room';
 import {environment} from '../../../environments/environment';
+import {DeviceTypes} from '../../models/devices/DeviceTypes';
+import {LightBulb} from '../../models/devices/LightBulb';
+import {Thermometer} from '../../models/devices/Thermometer';
+import {Thermostat} from '../../models/devices/Thermostat';
+import {AbstractDevice} from '../../models/devices/AbstractDevice';
+import {GenerateCommand} from '@angular/cli/commands/generate-impl';
+import {Generic} from '../../models/devices/Generic';
 
 interface ApiResponse {
     items: any[];
@@ -13,21 +19,31 @@ interface ApiResponse {
 })
 export class RestClientService {
     // Variables used to save states at runtime
-    devices: Device[];
+    devices: AbstractDevice[];
     rooms: Room[];
 
+    deviceMap: Map<string, any> = new Map();
+
     constructor(private http: HttpClient) {
+        this.deviceMap.set(DeviceTypes.LightBulb, LightBulb);
+        this.deviceMap.set(DeviceTypes.Thermometer, Thermometer);
+        this.deviceMap.set(DeviceTypes.Thermostat, Thermostat);
     }
 
     async getDevices() {
         if (this.devices) {
             return this.devices;
         }
-        const devices: Device[] = [];
+        const devices: AbstractDevice[] = [];
         const response: ApiResponse = <ApiResponse>await this.http.get(environment.apiEndpoints.devices).toPromise();
         for (const device of response.items) {
             const room = await this.getRoom(device.roomId);
-            devices.push(new Device({...device, room}));
+            const deviceConstructor = this.deviceMap.get(device.type);
+            if (!deviceConstructor) {
+                devices.push(new Generic({...device, room}));
+            } else {
+                devices.push(new deviceConstructor({...device, room}));
+            }
         }
         this.devices = devices;
         return devices;
@@ -39,7 +55,7 @@ export class RestClientService {
     }
 
     async getDevice(id: number) {
-        const devices: Device[] = await this.getDevices();
+        const devices: AbstractDevice[] = await this.getDevices();
         return devices.find(d => d.id === id);
     }
 
@@ -61,7 +77,7 @@ export class RestClientService {
         return rooms.find(d => d.id === id);
     }
 
-    async saveDevice(device: Device) {
+    async saveDevice(device: AbstractDevice) {
         this.devices = this.devices.map((obj) => {
             if (obj.id === device.id) {
                 return device;

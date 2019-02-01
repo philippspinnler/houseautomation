@@ -3,7 +3,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import {ThermostatComponent} from './thermostat.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
-import {Device} from '../../../models/Device';
+import {Thermostat} from '../../../models/devices/Thermostat';
 
 describe('ThermostatComponent', () => {
     let component: ThermostatComponent;
@@ -21,7 +21,7 @@ describe('ThermostatComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(ThermostatComponent);
         component = fixture.componentInstance;
-        component.thermostat = new Device({
+        component.thermostat = new Thermostat({
             id: 5,
             type: 'thermostat',
             name: 'Living Room Heating',

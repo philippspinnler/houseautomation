@@ -2,7 +2,7 @@ import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {ThermometerComponent} from './thermometer.component';
 import {CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
-import {Device} from '../../../models/Device';
+import {Thermometer} from '../../../models/devices/Thermometer';
 
 describe('ThermometerComponent', () => {
     let component: ThermometerComponent;
@@ -19,7 +19,7 @@ describe('ThermometerComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(ThermometerComponent);
         component = fixture.componentInstance;
-        component.thermometer = new Device({
+        component.thermometer = new Thermometer({
             id: 6,
             type: 'thermometer',
             name: 'Living Room Temperature',

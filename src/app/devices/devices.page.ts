@@ -1,10 +1,11 @@
 import {Component} from '@angular/core';
 import {RestClientService} from '../services/rest-client/rest-client.service';
-import {Device} from '../models/Device';
-import {DeviceTypes} from '../models/DeviceTypes';
+import {DeviceTypes} from '../models/devices/DeviceTypes';
 import {TemparatureChange} from '../components/devices/thermostat/TemparatureChange';
 import {Platform} from '@ionic/angular';
 import {ActivatedRoute} from '@angular/router';
+import {AbstractDevice} from '../models/devices/AbstractDevice';
+import {Thermometer} from '../models/devices/Thermometer';
 
 @Component({
     selector: 'app-devices',
@@ -12,7 +13,7 @@ import {ActivatedRoute} from '@angular/router';
     styleUrls: ['devices.page.scss']
 })
 export class DevicesPage {
-    devices: Device[];
+    devices: AbstractDevice[];
     roomName: string;
 
     constructor(private restClient: RestClientService, private route: ActivatedRoute) {
@@ -39,9 +40,10 @@ export class DevicesPage {
     with for example socket.io.
      */
     handleTemperatureChange(temperatureChange: TemparatureChange) {
-        this.devices = this.devices.map((device: Device) => {
+        this.devices = this.devices.map((device: AbstractDevice) => {
             if (device.type === DeviceTypes.Thermometer && device.room.id === temperatureChange.roomId) {
-                device.parameters.temperature = temperatureChange.temperature;
+                const thermometer: Thermometer = <Thermometer>device;
+                thermometer.parameters.temperature = temperatureChange.temperature;
             }
             return device;
         });

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Device} from 'src/app/models/Device';
 import {RestClientService} from '../../../services/rest-client/rest-client.service';
+import {LightBulb} from '../../../models/devices/LightBulb';
 
 @Component({
   selector: 'device-lightbulb',
@@ -9,7 +9,7 @@ import {RestClientService} from '../../../services/rest-client/rest-client.servi
 })
 export class LightbulbComponent implements OnInit {
 
-  @Input() lightbulb: Device;
+  @Input() lightBulb: LightBulb;
 
   constructor(private restClient: RestClientService) { }
 
@@ -17,8 +17,8 @@ export class LightbulbComponent implements OnInit {
   }
 
   async toggleLightBulb() {
-    this.lightbulb.parameters.on = !this.lightbulb.parameters.on;
-    await this.restClient.saveDevice(this.lightbulb);
+    this.lightBulb.parameters.on = !this.lightBulb.parameters.on;
+    await this.restClient.saveDevice(this.lightBulb);
   }
 
 }
