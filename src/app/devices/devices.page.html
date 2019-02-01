@@ -1,7 +1,12 @@
 <ion-header>
   <ion-toolbar>
+    <ion-buttons slot="start" *ngIf="roomName">
+      <ion-button [routerLink]="'/tabs/rooms'" routerDirection="backwards">
+        <ion-icon name="arrow-back"></ion-icon> Back To Rooms
+      </ion-button>
+    </ion-buttons>
     <ion-title>
-      Devices
+      {{ roomName ? roomName : 'Devices' }}
     </ion-title>
   </ion-toolbar>
 </ion-header>

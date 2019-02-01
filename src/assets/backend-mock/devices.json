@@ -3,7 +3,7 @@
     {
       "id": 1,
       "type": "lightbulb",
-      "name": "Living room ceiling 1",
+      "name": "Living Room Ceiling 1",
       "parameters": {
         "on": true,
         "color": "white",
@@ -14,7 +14,7 @@
     {
       "id": 2,
       "type": "lightbulb",
-      "name": "Living room ceiling 2",
+      "name": "Living Room Ceiling 2",
       "parameters": {
         "on": true,
         "color": "white",
@@ -25,7 +25,7 @@
     {
       "id": 4,
       "type": "lightbulb",
-      "name": "Living room couch table",
+      "name": "Living Room Couch Table",
       "parameters": {
         "on": true,
         "color": "white",
@@ -36,7 +36,7 @@
     {
       "id": 5,
       "type": "thermostat",
-      "name": "Living room temperature",
+      "name": "Living Room Heating",
       "parameters": {
         "on": true,
         "temperature": 21
@@ -46,7 +46,7 @@
     {
       "id": 6,
       "type": "thermometer",
-      "name": "Living room temperature",
+      "name": "Living Room Temperature",
       "parameters": {
         "temperature": 21
       },
@@ -55,12 +55,42 @@
     {
       "id": 6,
       "type": "speaker",
-      "name": "TV sound bar",
+      "name": "TV Sound Bar",
       "parameters": {
         "on": false,
         "volume": 5
       },
       "roomId": 1
+    },
+    {
+      "id": 7,
+      "type": "lightbulb",
+      "name": "Bedroom",
+      "parameters": {
+        "on": true,
+        "color": "white",
+        "intensity": 50
+      },
+      "roomId": 2
+    },
+    {
+      "id": 8,
+      "type": "thermostat",
+      "name": "Bedroom Heating",
+      "parameters": {
+        "on": true,
+        "temperature": 21
+      },
+      "roomId": 2
+    },
+    {
+      "id": 9,
+      "type": "thermometer",
+      "name": "Bedroom Temperature",
+      "parameters": {
+        "temperature": 21
+      },
+      "roomId": 2
     }
   ]
 }

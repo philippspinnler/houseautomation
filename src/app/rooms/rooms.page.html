@@ -9,9 +9,9 @@
 <ion-content>
   <ion-grid>
     <ion-row>
-      <ion-col *ngFor="let room of rooms" [size]="4">
+      <ion-col *ngFor="let room of rooms" [sizeSm]="6" [sizeXs]="12" [sizeMd]="4">
         <div>
-          <ion-card>
+          <ion-card [routerLink]="'/tabs/devices/' + room.id" routerDirection="forward">
             <ion-card-header>
               <ion-card-title>{{ room.name }}</ion-card-title>
             </ion-card-header>

@@ -2,11 +2,11 @@
   "items": [
     {
       "id": 1,
-      "name": "living room"
+      "name": "Living Room"
     },
     {
       "id": 2,
-      "name": "bed room"
+      "name": "Bedroom"
     }
   ]
 }

@@ -8,6 +8,15 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
+        path: 'devices/:roomId',
+        children: [
+          {
+            path: '',
+            loadChildren: '../devices/devices.module#DevicesPageModule'
+          }
+        ]
+      },
+      {
         path: 'devices',
         children: [
           {
@@ -27,14 +36,14 @@ const routes: Routes = [
       },
       {
         path: '',
-        redirectTo: '/tabs/devices',
+        redirectTo: '/tabs/rooms',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/devices',
+    redirectTo: '/tabs/rooms',
     pathMatch: 'full'
   }
 ];

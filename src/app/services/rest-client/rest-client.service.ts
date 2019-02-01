@@ -33,6 +33,11 @@ export class RestClientService {
         return devices;
     }
 
+    async getDevicesByRoom(roomId: number) {
+        const devices = await this.getDevices();
+        return devices.filter(device => device.room.id === roomId);
+    }
+
     async getDevice(id: number) {
         const devices: Device[] = await this.getDevices();
         return devices.find(d => d.id === id);

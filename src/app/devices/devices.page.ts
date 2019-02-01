@@ -3,6 +3,8 @@ import {RestClientService} from '../services/rest-client/rest-client.service';
 import {Device} from '../models/Device';
 import {DeviceTypes} from '../models/DeviceTypes';
 import {TemparatureChange} from '../components/devices/thermostat/TemparatureChange';
+import {Platform} from '@ionic/angular';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-devices',
@@ -11,13 +13,23 @@ import {TemparatureChange} from '../components/devices/thermostat/TemparatureCha
 })
 export class DevicesPage {
     devices: Device[];
+    roomName: string;
 
-    constructor(private restClient: RestClientService) {
+    constructor(private restClient: RestClientService, private route: ActivatedRoute) {
 
     }
 
     async ionViewWillEnter() {
-        this.devices = await this.restClient.getDevices();
+        const roomIdParam = this.route.snapshot.paramMap.get('roomId');
+        const roomId = (roomIdParam) ? parseInt(roomIdParam, 10) : null;
+        if (roomId) {
+            this.devices = await this.restClient.getDevicesByRoom(roomId);
+            const room = await this.restClient.getRoom(roomId);
+            this.roomName = room.name;
+        } else {
+            this.devices = await this.restClient.getDevices();
+        }
+
         console.log(this.devices);
     }
 
