@@ -2,10 +2,10 @@ import {Component} from '@angular/core';
 import {RestClientService} from '../services/rest-client/rest-client.service';
 import {DeviceTypes} from '../models/devices/DeviceTypes';
 import {TemparatureChange} from '../components/devices/thermostat/TemparatureChange';
-import {Platform} from '@ionic/angular';
 import {ActivatedRoute} from '@angular/router';
 import {AbstractDevice} from '../models/devices/AbstractDevice';
 import {Thermometer} from '../models/devices/Thermometer';
+import * as $ from 'jquery';
 
 @Component({
     selector: 'app-devices',
@@ -32,6 +32,12 @@ export class DevicesPage {
         }
 
         console.log(this.devices);
+    }
+
+    async ionViewDidEnter() {
+        const grid = $( 'ion-grid' );
+        grid.hide();
+        await grid.fadeIn(1000);
     }
 
     /*
